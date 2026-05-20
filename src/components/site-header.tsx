@@ -33,22 +33,6 @@ export function SiteHeader() {
             : "bg-transparent"
         }`}
       >
-        {/* Video background — only visible when NOT scrolled (transparent header) */}
-        {!scrolled && (
-          <div className="absolute inset-0 overflow-hidden">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 h-full w-full object-cover"
-            >
-              <source src="/sooka-header-bg.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-ink/40" />
-          </div>
-        )}
-
         <div className="section-shell relative flex h-20 items-center justify-between gap-4">
           <a
             href="#top"
