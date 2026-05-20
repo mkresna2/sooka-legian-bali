@@ -68,17 +68,19 @@ export default function Home() {
       <AnnouncementBar />
       <SiteHeader />
 
-      {/* ── HERO ── */}
+      {/* ── HERO VIDEO ── */}
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/images/page4_img1.jpeg"
-            alt="SOOKA entrance — a tropical eco-luxury sanctuary in Legian, Bali."
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/page4_img1.jpeg"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/sooka-hero.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-hero-fade" />
         </div>
 
