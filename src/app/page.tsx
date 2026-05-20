@@ -65,11 +65,10 @@ const banyanGalleryImages = [
 export default function Home() {
   return (
     <main id="top">
-      <AnnouncementBar />
       <SiteHeader />
 
       {/* ── HERO VIDEO ── */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate h-screen min-h-[600px] overflow-hidden">
         <div className="absolute inset-0">
           <video
             autoPlay
@@ -81,10 +80,10 @@ export default function Home() {
           >
             <source src="/sooka-hero.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-hero-fade" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-ink/40" />
         </div>
 
-        <div className="section-shell relative flex min-h-[calc(100vh-8rem)] items-end py-20 sm:py-28 lg:py-36">
+        <div className="section-shell relative flex h-full items-end pb-20 sm:pb-28 lg:pb-36">
           <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-end">
             <Reveal className="max-w-3xl text-cream">
               <p className="mb-5 text-xs uppercase tracking-[0.38em] text-cream/80">
