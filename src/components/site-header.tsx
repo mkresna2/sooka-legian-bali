@@ -5,12 +5,12 @@ import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 
 const links = [
-  { href: "#stay", label: "Stay" },
-  { href: "#taste", label: "Taste" },
-  { href: "#experience", label: "Experience" },
-  { href: "#wellness", label: "Wellness" },
-  { href: "#gather", label: "Gather" },
-  { href: "#offers", label: "Offers" },
+  { href: "#entrance", label: "Entrance" },
+  { href: "#green-passage", label: "Green Passage" },
+  { href: "#lobby", label: "Lobby & Gym" },
+  { href: "#pool", label: "Pool & Bar" },
+  { href: "#banyan", label: "Banyan Tree" },
+  { href: "#philosophy", label: "Philosophy" },
 ];
 
 export function SiteHeader() {
@@ -44,19 +44,6 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-5 lg:flex">
-            <button
-              type="button"
-              className="text-xs uppercase tracking-[0.28em] text-charcoal/70 hover:text-accent-green"
-              aria-label="Language selector"
-            >
-              EN
-            </button>
-            <a
-              href="#offers"
-              className="text-xs uppercase tracking-[0.28em] text-charcoal/70 hover:text-accent-green"
-            >
-              Members
-            </a>
             <a
               href="tel:+62361777777"
               className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-charcoal/70 hover:text-accent-green"

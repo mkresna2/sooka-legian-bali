@@ -3,101 +3,63 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  Camera,
-  Dumbbell,
-  Flower2,
-  GlassWater,
-  HeartHandshake,
-  Landmark,
+  DoorOpen,
   Leaf,
+  Landmark,
+  Waves,
+  TreePine,
   MapPinned,
-  Martini,
-  MessagesSquare,
-  Mountain,
-  PawPrint,
-  Sailboat,
-  Trees,
-  UtensilsCrossed,
-  X,
 } from "lucide-react";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { ExperienceCarousel } from "@/components/experience-carousel";
+import { ImageCarousel } from "@/components/image-carousel";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 
 const amenities = [
+  { label: "Entrance Experience", icon: DoorOpen },
   { label: "Green Passage", icon: Leaf },
-  { label: "Lobby & Lounge", icon: Landmark },
-  { label: "Anatomy Gym", icon: Dumbbell },
-  { label: "Pool & Sunken Bar", icon: Martini },
-  { label: "Banyan Tree", icon: Trees },
-  { label: "Eco-Luxury Design", icon: Flower2 },
-  { label: "Beachfront", icon: Sailboat },
-  { label: "Cultural Experiences", icon: HeartHandshake },
-  { label: "Sustainable Cuisine", icon: UtensilsCrossed },
-  { label: "Outdoor Pursuits", icon: Mountain },
-  { label: "Pet Friendly", icon: PawPrint },
-  { label: "Weddings & Events", icon: GlassWater },
+  { label: "Lobby, Lounge & Gym", icon: Landmark },
+  { label: "Pool & Sunken Bar", icon: Waves },
+  { label: "The Iconic Banyan Tree", icon: TreePine },
 ];
 
-const roomCards = [
-  {
-    name: "Garden Room",
-    description: "A serene retreat surrounded by tropical greenery.",
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    name: "Pool Access Room",
-    description: "Step directly from your terrace into the pool.",
-    image:
-      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    name: "Banyan Suite",
-    description: "Elevated luxury with views of the iconic banyan tree.",
-    image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    name: "Penthouse",
-    description: "The pinnacle of Sooka's eco-luxury experience.",
-    image:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
-  },
+const entranceImages = [
+  { src: "/images/page4_img1.jpeg", alt: "SOOKA entrance with bougainvillea and brick wall at golden hour." },
+  { src: "/images/page5_img2.jpeg", alt: "SOOKA entrance at blue hour with warm interior glow." },
+  { src: "/images/page6_img2.jpeg", alt: "Hotel drop-off area with Balinese shrine and stone structures." },
+  { src: "/images/page7_img2.jpeg", alt: "Stone feature wall and wooden louvers at twilight." },
+  { src: "/images/page3_img4.jpeg", alt: "Bougainvillea cascading over a textured brick wall." },
 ];
 
-const narrativeSections = [
-  {
-    id: "nature",
-    eyebrow: "Arrival",
-    title: "Where Nature Leads",
-    body: "The entrance is designed as a calm transition from the vibrant atmosphere of Legian into a warm and intimate resort experience. A massive brick wall frames the drop-off area, creating an earthy, timeless, and grounded character, softened by touches of bougainvillea that bring a vibrant tropical feel. Natural pebble stone pathways enhance the sense of barefoot luxury - relaxed, tactile, and deeply connected to Bali's coastal ambiance.",
-    link: "Explore the Entrance",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
-    alt: "A tropical arrival court with layered greenery and stone textures.",
-  },
-  {
-    id: "taste",
-    eyebrow: "Transition",
-    title: "The Green Passage",
-    body: "Before reaching the reception area, guests are welcomed through an indoor garden inspired by a greenhouse concept. This transitional space introduces a softer and more refreshing atmosphere, celebrating Bali not only as a coastal destination, but also as an island rich with lush tropical landscapes. Natural light, greenery, and layered vegetation create a calm sensory experience that reconnects guests with Bali's living nature.",
-    link: "Explore",
-    image:
-      "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1400&q=80",
-    alt: "A lush greenhouse-inspired passage filled with tropical planting.",
-  },
-  {
-    id: "wellness",
-    eyebrow: "Social Heart",
-    title: "Lobby, Lounge & Gym",
-    body: "The lobby and lounge embrace an eco-luxury concept that blends tropical warmth with contemporary elegance. Natural materials, lush greenery, and earthy tones create a relaxed yet refined atmosphere inspired by Bali's coastal lifestyle. A technology-integrated waterfall acts as a dynamic partition between the lobby lounge and the pool area, creating a sensory transition through the sound, movement, and reflection of water. Above, the mezzanine gym overlooks the space, bringing a subtle sense of energy and active lifestyle into the resort experience.",
-    link: "Explore",
-    image:
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1400&q=80",
-    alt: "An airy resort lobby with layered textures and warm tropical light.",
-  },
+const greenPassageImages = [
+  { src: "/images/page9_img1.jpeg", alt: "Green Passage — vaulted roof with indoor garden and skylight." },
+  { src: "/images/page10_img1.jpeg", alt: "Green Passage Option 1 — lush indoor tropical corridor." },
+  { src: "/images/page11_img1.jpeg", alt: "Green Passage Option 2 — semi-outdoor garden passage." },
+  { src: "/images/page1_img1.jpeg", alt: "Concept — circular oculus flooding an indoor forest with light." },
+  { src: "/images/page1_img4.jpeg", alt: "Concept — indoor reflecting pool surrounded by tropical grotto." },
+  { src: "/images/page8_img3.jpeg", alt: "Indoor atrium courtyard viewed from above." },
+];
+
+const lobbyImages = [
+  { src: "/images/page13_img3.jpeg", alt: "Lobby communal table with sculptural wood wall and Joglo roof." },
+  { src: "/images/page14_img1.jpeg", alt: "Lobby with mezzanine gym overlooking biophilic lounge." },
+  { src: "/images/page15_img1.jpeg", alt: "Lobby, Lounge & Gym Option 1 — warm tropical interior." },
+  { src: "/images/page16_img1.jpeg", alt: "Lobby, Lounge & Gym Option 2 — contemporary eco-luxury." },
+];
+
+const poolGalleryImages = [
+  { src: "/images/page18_img3.jpeg", alt: "Pool with ornamental grasses and pendant globe lights." },
+  { src: "/images/page19_img1.jpeg", alt: "Pool gazebo with white curtains and thatched roof." },
+  { src: "/images/page18_img6.jpeg", alt: "Swim-up bar with turquoise pool water." },
+  { src: "/images/page18_img5.jpeg", alt: "Pool with mature tree and yellow hanging lanterns." },
+  { src: "/images/page21_img3.jpeg", alt: "Tree island in pool illuminated at night." },
+];
+
+const banyanGalleryImages = [
+  { src: "/images/page23_img1.jpeg", alt: "Banyan tree courtyard at night with crescent moon." },
+  { src: "/images/page21_img3.jpeg", alt: "Tree island reflecting in a tranquil pool at night." },
+  { src: "/images/page21_img5.jpeg", alt: "Dramatic stone wall with uplighting and textured foliage." },
 ];
 
 export default function Home() {
@@ -106,14 +68,16 @@ export default function Home() {
       <AnnouncementBar />
       <SiteHeader />
 
+      {/* ── HERO ── */}
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80"
-            alt="Sunset over a tropical Bali beach resort."
+            src="/images/page4_img1.jpeg"
+            alt="SOOKA entrance — a tropical eco-luxury sanctuary in Legian, Bali."
             fill
             priority
             className="object-cover"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-hero-fade" />
         </div>
@@ -125,8 +89,11 @@ export default function Home() {
                 A Tropical Eco-Luxury Sanctuary
               </p>
               <h1 className="text-5xl leading-none tracking-[0.08em] text-balance sm:text-6xl lg:text-8xl">
-                SOOKA - LEGIAN, BALI
+                SOOKA – LEGIAN, BALI
               </h1>
+              <p className="mt-4 text-lg uppercase tracking-[0.22em] text-cream/75">
+                Where Architecture Dissolves Into Nature
+              </p>
               <div className="mt-8 space-y-3 text-sm uppercase tracking-[0.26em] text-cream/80">
                 <p>Jalan Legian, Kuta, Bali</p>
                 <a
@@ -149,7 +116,7 @@ export default function Home() {
                 Welcome to Sooka, a tropical eco-luxury sanctuary in the heart
                 of Legian, Bali. Where architecture dissolves into nature, every
                 space is designed to reconnect you with Bali&apos;s living
-                landscape - from the iconic banyan tree to the sunken bar by
+                landscape — from the iconic banyan tree to the sunken bar by
                 the pool. Your journey to barefoot luxury starts here.
               </p>
             </Reveal>
@@ -157,105 +124,172 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── EXPERIENCE CAROUSEL ── */}
       <section id="experience" className="section-shell py-20 sm:py-24 lg:py-28">
         <Reveal>
           <ExperienceCarousel amenities={amenities} />
         </Reveal>
       </section>
 
-      {narrativeSections.map((section, index) => (
-        <section
-          key={section.title}
-          id={section.id}
-          className="section-shell py-16 sm:py-20 lg:py-24"
-        >
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <Reveal
-              className={index % 2 === 1 ? "lg:order-2" : ""}
-              y={60}
-            >
-              <motion.div
-                initial={{ scale: 1.06, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative aspect-[4/5] overflow-hidden rounded-[2.25rem] shadow-soft"
-              >
-                <Image
-                  src={section.image}
-                  alt={section.alt}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            </Reveal>
+      {/* ── ENTRANCE EXPERIENCE ── */}
+      <section id="entrance" className="section-shell py-16 sm:py-20 lg:py-24">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <Reveal>
+            <p className="kicker">Entrance Experience</p>
+            <h2 className="mt-4 max-w-xl text-4xl text-balance text-charcoal sm:text-5xl">
+              Where Nature Leads
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-charcoal/78 sm:text-lg">
+              The entrance is designed as a calm transition from the vibrant
+              atmosphere of Legian into a warm and intimate resort experience. A
+              massive brick wall frames the drop-off area, creating an earthy,
+              timeless, and grounded character, softened by touches of
+              bougainvillea that bring a vibrant tropical feel. Natural pebble
+              stone pathways enhance the sense of barefoot luxury — relaxed,
+              tactile, and deeply connected to Bali&apos;s coastal ambiance.
+            </p>
+            <a href="#green-passage" className="editorial-link mt-8">
+              Explore the Entrance
+            </a>
+          </Reveal>
 
-            <Reveal
-              className={index % 2 === 1 ? "lg:order-1" : ""}
-              delay={0.1}
-            >
-              <p className="kicker">{section.eyebrow}</p>
-              <h2 className="mt-4 max-w-xl text-4xl text-balance text-charcoal sm:text-5xl">
-                {section.title}
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-8 text-charcoal/78 sm:text-lg">
-                {section.body}
-              </p>
-              <a href="#stay" className="editorial-link mt-8">
-                {section.link}
-              </a>
-            </Reveal>
-          </div>
-        </section>
-      ))}
-
-      <section className="section-shell py-16 sm:py-20 lg:py-24">
-        <Reveal>
-          <div className="relative min-h-[540px] overflow-hidden rounded-[2.5rem]">
-            <Image
-              src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80"
-              alt="A tropical swimming pool with lush greenery and lounge spaces."
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-8 text-cream sm:p-10 lg:max-w-2xl lg:p-14">
-              <p className="kicker !text-cream/70">Leisure</p>
-              <h2 className="mt-4 text-4xl text-balance sm:text-5xl">
-                Pool &amp; Sunken Bar
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-cream/85 sm:text-base">
-                The pool area and sunken bar are designed as a lush tropical
-                oasis, surrounded by carefully curated trees and landscaped
-                gardens that create privacy, shade, and a strong connection to
-                nature. The atmosphere balances relaxation and social energy,
-                offering a seamless blend of resort leisure, tropical greenery,
-                and understated eco-luxury by the beach.
-              </p>
-              <a href="#gather" className="mt-8 inline-block editorial-link !text-cream">
-                Explore
-              </a>
-            </div>
-          </div>
-        </Reveal>
+          <Reveal delay={0.1}>
+            <ImageCarousel images={entranceImages} />
+          </Reveal>
+        </div>
       </section>
 
-      <section
-        id="gather"
-        className="relative isolate overflow-hidden py-24 sm:py-28 lg:py-36"
-      >
+      {/* ── THE GREEN PASSAGE ── */}
+      <section id="green-passage" className="section-shell py-16 sm:py-20 lg:py-24">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <Reveal className="lg:order-2">
+            <p className="kicker">The Green Passage</p>
+            <h2 className="mt-4 max-w-xl text-4xl text-balance text-charcoal sm:text-5xl">
+              Before reaching the reception, nature welcomes you first
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-charcoal/78 sm:text-lg">
+              Before reaching the reception area, guests are welcomed through an
+              indoor garden inspired by a greenhouse concept. This transitional
+              space introduces a softer and more refreshing atmosphere,
+              celebrating Bali not only as a coastal destination, but also as an
+              island rich with lush tropical landscapes. Natural light,
+              greenery, and layered vegetation create a calm sensory experience
+              that reconnects guests with Bali&apos;s living nature.
+            </p>
+            <a href="#lobby" className="editorial-link mt-8">
+              Explore
+            </a>
+          </Reveal>
+
+          <Reveal delay={0.1} className="lg:order-1">
+            <ImageCarousel images={greenPassageImages} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── LOBBY, LOUNGE & GYM ── */}
+      <section id="lobby" className="section-shell py-16 sm:py-20 lg:py-24">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <Reveal>
+            <p className="kicker">Lobby, Lounge &amp; Gym</p>
+            <h2 className="mt-4 max-w-xl text-4xl text-balance text-charcoal sm:text-5xl">
+              The Social Heart of Sooka
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-charcoal/78 sm:text-lg">
+              The lobby and lounge embrace an eco-luxury concept that blends
+              tropical warmth with contemporary elegance. Natural materials, lush
+              greenery, and earthy tones create a relaxed yet refined atmosphere
+              inspired by Bali&apos;s coastal lifestyle. A
+              technology-integrated waterfall acts as a dynamic partition between
+              the lobby lounge and the pool area, creating a sensory transition
+              through the sound, movement, and reflection of water. Above, the
+              mezzanine gym overlooks the space, bringing a subtle sense of
+              energy and active lifestyle into the resort experience.
+            </p>
+            <a href="#pool" className="editorial-link mt-8">
+              Explore
+            </a>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <ImageCarousel images={lobbyImages} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── POOL & SUNKEN BAR ── */}
+      <section id="pool" className="relative isolate overflow-hidden py-24 sm:py-28 lg:py-36">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1800&q=80"
-            alt="A dramatic banyan tree canopy in a serene tropical setting."
+            src="/images/page20_img1.jpeg"
+            alt="Poolside bar at night — a lush tropical oasis."
             fill
             className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/15" />
+        </div>
+
+        <Reveal className="section-shell relative text-cream">
+          <p className="kicker !text-cream/70">Pool &amp; Sunken Bar</p>
+          <h2 className="mt-4 max-w-2xl text-4xl text-balance sm:text-5xl lg:text-6xl">
+            A Lush Tropical Oasis
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-cream/84 sm:text-lg">
+            The pool area and sunken bar are designed as a lush tropical oasis,
+            surrounded by carefully curated trees and landscaped gardens that
+            create privacy, shade, and a strong connection to nature. The
+            atmosphere balances relaxation and social energy, offering a seamless
+            blend of resort leisure, tropical greenery, and understated
+            eco-luxury by the beach.
+          </p>
+          <a href="#banyan" className="mt-8 inline-block editorial-link !text-cream">
+            Explore
+          </a>
+        </Reveal>
+
+        {/* Gallery strip */}
+        <div className="section-shell relative mt-12">
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+            {poolGalleryImages.map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.6 }}
+                className="relative min-w-[280px] flex-shrink-0 overflow-hidden rounded-[1.5rem] sm:min-w-[340px]"
+              >
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="340px"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE ICONIC BANYAN TREE ── */}
+      <section id="banyan" className="relative isolate overflow-hidden py-24 sm:py-28 lg:py-36">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/page22_img1.jpeg"
+            alt="The iconic banyan tree — a living landmark at the end of the pool deck."
+            fill
+            className="object-cover"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/40 to-black/30" />
         </div>
 
         <Reveal className="section-shell relative text-cream">
-          <p className="kicker !text-cream/70">Living Landmark</p>
+          <p className="kicker !text-cream/70">Anchor: The Iconic Banyan Tree</p>
           <h2 className="mt-4 max-w-2xl text-4xl text-balance sm:text-5xl lg:text-6xl">
             The Iconic Banyan Tree
           </h2>
@@ -267,64 +301,56 @@ export default function Home() {
             integrated seating, the space offers a calm retreat within the
             resort&apos;s eco-luxury experience.
           </p>
-          <a href="#stay" className="mt-8 inline-block editorial-link !text-cream">
+          <a href="#philosophy" className="mt-8 inline-block editorial-link !text-cream">
             Explore
           </a>
         </Reveal>
-      </section>
 
-      <section id="stay" className="section-shell py-20 sm:py-24 lg:py-28">
-        <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="kicker">Stay</p>
-            <h2 className="mt-3 text-4xl text-balance text-charcoal sm:text-5xl">
-              Rooms designed for quiet immersion.
-            </h2>
-          </div>
-          <p className="max-w-lg text-sm leading-7 text-charcoal/72">
-            Tropical textures, generous terraces, and restorative privacy define
-            every accommodation at Sooka.
-          </p>
-        </Reveal>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {roomCards.map((room, index) => (
-            <Reveal key={room.name} delay={index * 0.08}>
-              <article className="overflow-hidden rounded-[2rem] border border-charcoal/10 bg-white/60 shadow-soft">
-                <div className="relative aspect-[4/5]">
+        {/* Gallery strip */}
+        <div className="section-shell relative mt-12">
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+            {banyanGalleryImages.map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.6 }}
+                className="relative min-w-[280px] flex-shrink-0 overflow-hidden rounded-[1.5rem] sm:min-w-[340px]"
+              >
+                <div className="relative aspect-[3/4]">
                   <Image
-                    src={room.image}
-                    alt={room.name}
+                    src={img.src}
+                    alt={img.alt}
                     fill
                     className="object-cover"
+                    sizes="340px"
                   />
                 </div>
-                <div className="space-y-4 p-6">
-                  <h3 className="text-2xl text-charcoal">{room.name}</h3>
-                  <p className="text-sm leading-7 text-charcoal/72">
-                    {room.description}
-                  </p>
-                  <a
-                    href="#newsletter"
-                    className="inline-flex rounded-full bg-ink px-5 py-3 text-xs uppercase tracking-[0.28em] text-cream hover:bg-accent-green"
-                  >
-                    Book Now
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="offers" className="border-y border-charcoal/10 bg-sand/35 py-20 sm:py-24">
-        <Reveal className="section-shell max-w-4xl">
+      {/* ── SUSTAINABLE PHILOSOPHY ── */}
+      <section id="philosophy" className="relative isolate overflow-hidden border-y border-charcoal/10 py-20 sm:py-24">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/page1_img1.jpeg"
+            alt="Circular oculus flooding an indoor forest with natural light."
+            fill
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+        </div>
+        <Reveal className="section-shell relative max-w-4xl">
           <p className="kicker">Philosophy</p>
           <h2 className="mt-4 text-4xl text-balance text-charcoal sm:text-5xl">
             Rooted in Nature
           </h2>
           <p className="mt-6 text-base leading-8 text-charcoal/80 sm:text-lg">
-            At Sooka, sustainability is not an afterthought - it&apos;s the
+            At Sooka, sustainability is not an afterthought — it&apos;s the
             foundation. From locally sourced materials and traditional Balinese
             craftsmanship to zero-waste dining and native landscaping, every
             decision is guided by a deep respect for the island and its
@@ -334,6 +360,7 @@ export default function Home() {
         </Reveal>
       </section>
 
+      {/* ── NEWSLETTER ── */}
       <section id="newsletter" className="section-shell py-20 sm:py-24 lg:py-28">
         <Reveal className="grid gap-10 rounded-[2.5rem] bg-accent-green px-6 py-10 text-cream sm:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:px-14 lg:py-16">
           <div>
@@ -365,6 +392,7 @@ export default function Home() {
         </Reveal>
       </section>
 
+      {/* ── FOOTER ── */}
       <footer className="bg-ink py-16 text-cream">
         <div className="section-shell grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 xl:grid-cols-4">
           <div>
@@ -391,20 +419,20 @@ export default function Home() {
               Explore
             </p>
             <div className="mt-5 space-y-3 text-sm text-cream/72">
-              <a href="#stay" className="block hover:text-white">
-                Stay
+              <a href="#entrance" className="block hover:text-white">
+                Entrance Experience
               </a>
-              <a href="#taste" className="block hover:text-white">
-                Taste
+              <a href="#green-passage" className="block hover:text-white">
+                Green Passage
               </a>
-              <a href="#experience" className="block hover:text-white">
-                Experience
+              <a href="#lobby" className="block hover:text-white">
+                Lobby, Lounge &amp; Gym
               </a>
-              <a href="#wellness" className="block hover:text-white">
-                Wellness
+              <a href="#pool" className="block hover:text-white">
+                Pool &amp; Sunken Bar
               </a>
-              <a href="#gather" className="block hover:text-white">
-                Gather
+              <a href="#banyan" className="block hover:text-white">
+                The Iconic Banyan Tree
               </a>
             </div>
           </div>
@@ -417,7 +445,7 @@ export default function Home() {
               <a href="#top" className="block hover:text-white">
                 Our Story
               </a>
-              <a href="#offers" className="block hover:text-white">
+              <a href="#philosophy" className="block hover:text-white">
                 Sustainability
               </a>
               <a href="#newsletter" className="block hover:text-white">
@@ -441,7 +469,7 @@ export default function Home() {
                 aria-label="Instagram"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-cream/75 hover:border-white hover:text-white"
               >
-                <Camera className="h-4 w-4" />
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
               </a>
               <a
                 href="https://facebook.com"
@@ -450,7 +478,7 @@ export default function Home() {
                 aria-label="Facebook"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-cream/75 hover:border-white hover:text-white"
               >
-                <MessagesSquare className="h-4 w-4" />
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
               <a
                 href="https://x.com"
@@ -459,7 +487,7 @@ export default function Home() {
                 aria-label="X"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-cream/75 hover:border-white hover:text-white"
               >
-                <X className="h-4 w-4" />
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
             </div>
           </div>
@@ -467,15 +495,9 @@ export default function Home() {
 
         <div className="section-shell flex flex-col gap-4 pt-6 text-xs uppercase tracking-[0.24em] text-cream/45 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-4">
-            <a href="#top" className="hover:text-white">
-              Terms
-            </a>
-            <a href="#top" className="hover:text-white">
-              Privacy
-            </a>
-            <a href="#top" className="hover:text-white">
-              Accessibility
-            </a>
+            <a href="#top" className="hover:text-white">Terms</a>
+            <a href="#top" className="hover:text-white">Privacy</a>
+            <a href="#top" className="hover:text-white">Accessibility</a>
           </div>
           <p>&copy; 2025 Sooka Legian Bali</p>
         </div>
