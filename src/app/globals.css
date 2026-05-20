@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f5f0e8;
+  color: #2c2c2c;
+}
+
+::selection {
+  background: rgba(45, 90, 61, 0.18);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+
+  a,
+  button,
+  input {
+    @apply transition duration-300 ease-out;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .kicker {
+    @apply text-[0.7rem] uppercase tracking-[0.35em] text-accent-green/80;
+  }
+
+  .editorial-link {
+    @apply inline-flex items-center gap-2 border-b border-current pb-1 text-xs uppercase tracking-[0.32em] hover:text-accent-green;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
